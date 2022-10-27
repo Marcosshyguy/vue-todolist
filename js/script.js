@@ -4,10 +4,12 @@ createApp({
     data: function(){
         return {
            toDoList :[],
-           userChoice: {
-            toDo : "",
-            isDone: false
-           },
+        //    userChoice: {
+        //     toDo : "",
+        //     isDone: false
+        //    },
+           userChoice : "",
+           isDone: false,
            indexPosition : 0
         }
     },
@@ -15,14 +17,15 @@ createApp({
         // push the user choice at the beginning
         pushUserChoice : function(){
             if(this.userChoice){
-                this.toDoList.push(this.userChoice);
-                this.userChoice.toDo = "";
+                this.toDoList.unshift(this.userChoice);
+                // this.userChoice.toDo = "";
+                this.userChoice = "";
             }
         },
-        isItDone : function(Index){
-            this.indexPosition = Index;
-            this.isDone = !this.isDone;
-        },
+        // isItDone : function(Index){
+        //     // this.indexPosition = Index;
+        //     // this.isDone = !this.isDone;
+        // },
         removeTask: function(indexs){
             this.toDoList.splice(indexs,1);
         }
