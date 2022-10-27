@@ -4,13 +4,30 @@ createApp({
     data: function(){
         return {
            toDoList :[],
-           userChoice: ""
+           userChoice: "",
+           isDone: false,
+           indexPosition : 0
         }
     },
     methods :{
         // push the user choice at the beginning
         pushUserChoice : function(){
-            this.toDoList.push(this.userChoice);
+            if(this.userChoice){
+                this.toDoList.push(this.userChoice);
+                this.userChoice = "";
+            }
+        },
+        isItDone : function(Index){
+            this.indexPosition = Index;
+            this.isDone = !this.isDone;
+        },
+        removeTask: function(indexs){
+            this.toDoList.splice(indexs,1);
         }
     }
 }).mount("#app")
+
+
+// relativePicture: function(arrayIndex){
+//     this.tabindex = arrayIndex
+// }
