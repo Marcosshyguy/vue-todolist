@@ -4,8 +4,10 @@ createApp({
     data: function(){
         return {
            toDoList :[],
-           userChoice: "",
-           isDone: false,
+           userChoice: {
+            toDo : "",
+            isDone: false
+           },
            indexPosition : 0
         }
     },
@@ -14,7 +16,7 @@ createApp({
         pushUserChoice : function(){
             if(this.userChoice){
                 this.toDoList.push(this.userChoice);
-                this.userChoice = "";
+                this.userChoice.toDo = "";
             }
         },
         isItDone : function(Index){

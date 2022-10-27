@@ -16,7 +16,7 @@
             <div class="form-container">
                 <label for="to-do"></label>
                 <input type="text" id="to-do" placeholder="Inserisci cose da fare" 
-                v-model.trim="userChoice">
+                v-model.trim="userChoice.toDo">
                 <!-- <label for="is-do"></label>
                 <input type="text" id="is-do" placeholder="Inserisci cose da fare"> -->
             </div>
@@ -24,15 +24,16 @@
             <button class="add-btn" @click="pushUserChoice">Inserisci</button>
             <!-- todo list -->
             <div class="to-do-container ">
-                <ul>
+                <ul v-if="toDoList.length !== 0">
                     <li v-for="(listItem, listIndex) in toDoList" >
-                        <span :class="isDone ? 'underlined' : ''" @click="isItDone(listIndex)">  {{toDoList[listIndex]}}
+                        <span :class="isDone ? 'underlined' : ''" @click="isItDone(listIndex)">  {{ toDoList[0].toDo }}
                         </span>
                         <span @click="removeTask(listIndex)">
                             &#10060;
                         </span>
                     </li>
                 </ul>
+                <p v-else>attendo cose da fare</p>
             </div>
         </div>
 
