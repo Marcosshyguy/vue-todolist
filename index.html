@@ -26,7 +26,7 @@
             <div class="to-do-container" >
                 <ul v-if="toDoList.length !== 0">
                     <li v-for="(listItem, listIndex) in toDoList">
-                        <span :class="isDone ? 'underlined' : ''" @click="isItDone(listIndex)">  {{ toDoList[listIndex].toDo }}
+                        <span :class="listItem.isDone ? 'underlined' : ''" @click="isItDone(listIndex)">  {{ toDoList[listIndex].toDo }}
                         </span>
                         <span class="remove-task" @click="removeTask(listIndex)">
                             &#10060;
