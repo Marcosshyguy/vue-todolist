@@ -47,6 +47,12 @@ html{
     border: 1px solid black;
 }
 
+.to-do-container li:focus{
+    border: 1px red solid;
+}
+
+
+
 /* button */
 .add-btn{
     margin-top: 1em;
